@@ -1,0 +1,41 @@
+{
+  "devDependencies": {
+    "@cypress/browserify-preprocessor": "^3.0.2",
+    "@playwright/test": "^1.37.1",
+    "cypress": "^12.14.0",
+    "cypress-multi-reporters": "^1.6.3"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^18.0.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false,
+    "stepDefinitions": [
+      "cypress/support/**/*.js"
+    ]
+  },
+  "name": "metadata",
+  "description": "Basic setup for cypress",
+  "version": "1.0.0",
+  "main": "cypress.config.js",
+  "scripts": {
+    "test": "mocha",
+    "cy:runChrome": "cypress run --browser chrome --headless",
+    "cy:openChrome": "cypress open --browser chrome"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joryimazterzon/metadata.git"
+  },
+  "keywords": [
+    "Cypress",
+    "BDD",
+    "e2e",
+    "api"
+  ],
+  "author": "Joryi Vazquez",
+  "bugs": {
+    "url": "https://github.com/joryimazterzon/metadata/issues"
+  },
+  "homepage": "https://github.com/joryimazterzon/metadata#readme"
+}
