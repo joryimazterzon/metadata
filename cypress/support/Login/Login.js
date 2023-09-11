@@ -30,6 +30,7 @@ Then('I select Phones category to add a device', (datatable) => {
 Then('I visit the cart and remove one item', (datatable) => {
   datatable.hashes().forEach((element) => {
     login.navigateToCart();
+    productCart.validatePrice();
     productCart.deleteProductByIndex(element.index);
   });
 });
@@ -44,4 +45,5 @@ Then('place the order and purchase', () => {
   productCart.enterMonth(Cypress.env('demoblaze-place-order-cc-month'));
   productCart.enterYear(Cypress.env('demoblaze-place-order-cc-year'));
   productCart.submitPurchaseOrder();
+  productCart.validateSuccessfulPurchase();
 });
