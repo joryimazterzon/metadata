@@ -68,13 +68,15 @@ export default class Cart extends GlobalNav {
   }
 
   validatePurchaseData() {
-    cy.get(selector.purchaseData).should(
-      'contain.text',
-      Cypress.env('demoblaze-place-order-name')
-    );
-    cy.get(selector.purchaseData).should(
-      'contain.text',
-      Cypress.env('demoblaze-place-order-cc-number')
-    );
+    cy.get(selector.purchaseData).then((item) => {
+      //Id: 7551605Amount: 800 USDCard Number: 1582496875136958Name: Mazterzon SmitDate: 11/8/2023
+      const text = item.text().trim().split(':');
+      expect(text[4]).equal(
+        ` ${Cypress.env('demoblaze-place-order-name')}Date`
+      );
+      expect(text[3]).equal(
+        ` ${Cypress.env('demoblaze-place-order-cc-number')}Name`
+      );
+    });
   }
 }

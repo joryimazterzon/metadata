@@ -20,7 +20,7 @@
   "main": "cypress.config.js",
   "scripts": {
     "test": "mocha",
-    "cy:runChrome": "cypress run --browser chrome --headless",
+    "cy:runChrome": "cypress run --spec '**/*.feature' --browser chrome --headless",
     "cy:openChrome": "cypress open --browser chrome"
   },
   "repository": {
