@@ -28,6 +28,9 @@ export default class GlobalNav {
   openLoginModal() {
     cy.get(selector.loginBtn).click();
   }
+  openSignUpModal() {
+    cy.get(selector.signUpBtn).click();
+  }
 
   navigateToCart() {
     cy.get(selector.cart).click();
