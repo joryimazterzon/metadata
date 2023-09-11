@@ -20,4 +20,12 @@ export default class Home extends GlobalNav {
     cy.get(selector.product).eq(index).click();
     cy.get(selector.addToCartBtn).click();
   }
+
+  validateTotalProducts(category, length) {
+    cy.get(`a[onclick="byCat('${category}')"]`)
+      .click()
+      .then(() => {
+        cy.get(selector.product).should('have.length', length);
+      });
+  }
 }

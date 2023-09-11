@@ -15,6 +15,7 @@ let selector = {
   prices: '#tbodyid td:nth-child(3)',
   total: '#totalp',
   thankyouMessage: 'div.showSweetAlert h2',
+  purchaseData: 'div.showSweetAlert p.text-muted',
 };
 
 export default class Cart extends GlobalNav {
@@ -63,6 +64,17 @@ export default class Cart extends GlobalNav {
     cy.get(selector.thankyouMessage).should(
       'have.text',
       'Thank you for your purchase!'
+    );
+  }
+
+  validatePurchaseData() {
+    cy.get(selector.purchaseData).should(
+      'contain.text',
+      Cypress.env('demoblaze-place-order-name')
+    );
+    cy.get(selector.purchaseData).should(
+      'contain.text',
+      Cypress.env('demoblaze-place-order-cc-number')
     );
   }
 }
